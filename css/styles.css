@@ -1,0 +1,380 @@
+
+:root {
+    /* light mode*/
+    --bg-color: #f0ece6;
+    --text-color: #3a3532;
+    --muted-text: #8a837c;
+    --card-bg: #faf8f5;
+    --header-bg: #f0ece6;
+    --border-color: #d9d3cb;
+    --accent-color: #6b5d7a; 
+    --accent-hover: #574a63;
+    --alert-bg: #e8dfd0;
+    --alert-text: #6b4a3a;
+    --modal-overlay: rgba(30, 25, 22, 0.85);
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1820;
+        --text-color: #d8d2cc;
+        --muted-text: #8a837c;
+        --card-bg: #24212b;
+        --header-bg: #1a1820;
+        --border-color: #35313d;
+        --accent-color: #a396b3;
+        --accent-hover: #b8acc6;
+        --alert-bg: #29252f;
+        --alert-text: #afaaa3;
+        --modal-overlay: rgba(10, 8, 12, 0.92);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #1a1820; /*var(--bg-color) */
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* header */
+header {
+    background-color: #1a1820;
+    border-bottom: 1px solid var(--border-color);
+    /* position: sticky; */
+    /* top: 0;
+    z-index: 100; */
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #594e5f;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #7e7285;
+}
+
+/* alert */
+.alert {
+    background-color: var(--alert-bg);
+    color: var(--alert-text);
+    padding: 0.9rem 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.alert a {
+    color: var(--alert-text);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* gallery */
+.gallery-section {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.gallery-section h2,
+.form-section h2 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+/* mobile: 1 column */
+.gallery-grid {
+    display: grid;
+    
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+/* tablet: 2 columns */
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* desktop: 3 columns */
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* cards */
+.art-card {
+    background-color: #25212d;
+    border: 1px solid #241d2b;
+    /* overflow: hidden; */
+    /* transition: border-color 0.3s; */
+    display: flex;
+    flex-direction: column;
+}
+
+.art-card:hover {
+    border-color: #5d5061;
+}
+
+.art-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    /* display: block; */
+}
+
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    letter-spacing: 0.03em;
+}
+
+.card-info p {
+    font-size: 16px;
+    color: #594e5f;
+    font-style: italic;
+}
+
+.view-btn {
+    margin-top: 1.2rem;
+    align-self: flex-start;
+    background: none;
+    border: #8b83a0;
+    color: #8b83a0;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--accent-color);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.view-btn:hover {
+    color: #d6c4e9;
+    border-color: #d6c4e9;
+}
+
+/* form */
+.form-section {
+    max-width: 560px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+.form-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+.form-section > p {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--muted-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.7rem 0;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-bottom-color: var(--accent-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    align-self: flex-start;
+    background: none;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 0.7rem 2rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--card-bg);
+}
+
+/* ==========================================
+   7. FOOTER
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 5rem;
+    font-size: 0.85rem;
+    color: var(--muted-text);
+}
+
+/* ==========================================
+   8. CSS-ONLY MODAL
+   ========================================== */
+.modal-toggle {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s, visibility 0.4s;
+    z-index: 1000;
+    padding: 1.5rem;
+}
+
+.modal-toggle:checked + .modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--muted-text);
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: var(--text-color);
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content h3 {
+    font-weight: normal;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.8rem;
+}
+
+.modal-content p {
+    font-size: 0.95rem;
+    color: var(--muted-text);
+    line-height: 1.7;
+}
