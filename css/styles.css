@@ -292,9 +292,7 @@ nav a:hover {
     color: var(--card-bg);
 }
 
-/* ==========================================
-   7. FOOTER
-   ========================================== */
+/* footer */
 footer {
     text-align: center;
     padding: 3rem 2rem;
@@ -304,9 +302,7 @@ footer {
     color: var(--muted-text);
 }
 
-/* ==========================================
-   8. CSS-ONLY MODAL
-   ========================================== */
+/* modal */
 .modal-toggle {
     display: none;
 }
