@@ -1,32 +1,31 @@
-
 :root {
-    /* light mode*/
-    --bg-color: #f0ece6;
-    --text-color: #3a3532;
-    --muted-text: #8a837c;
-    --card-bg: #faf8f5;
-    --header-bg: #f0ece6;
-    --border-color: #d9d3cb;
-    --accent-color: #6b5d7a; 
-    --accent-hover: #574a63;
-    --alert-bg: #e8dfd0;
-    --alert-text: #6b4a3a;
-    --modal-overlay: rgba(30, 25, 22, 0.85);
+    /* light mode */
+    --bg-color: #c6b6dc;
+    --text-color: #6b558e;
+    --muted-text: #917cac;
+    --card-bg: #dacde7;
+    --header-bg: #c6b6dc;
+    --border-color: #a393b3;
+    --accent-color: #846aa0; 
+    --accent-hover: #71558b;
+    --alert-bg: #b4a2ca;
+    --alert-text: #5c4674;
+    --modal-overlay: rgba(30, 25, 22, 0.7);
 }
 
 /* dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: #1a1820;
-        --text-color: #d8d2cc;
-        --muted-text: #8a837c;
+        --text-color: #d1c1e8;
+        --muted-text: #807589;
         --card-bg: #24212b;
         --header-bg: #1a1820;
         --border-color: #35313d;
-        --accent-color: #a396b3;
-        --accent-hover: #b8acc6;
-        --alert-bg: #29252f;
-        --alert-text: #afaaa3;
+        --accent-color: #7e738a;
+        --accent-hover: #4f425d;
+        --alert-bg: #2a2631;
+        --alert-text: #938b9d;
         --modal-overlay: rgba(10, 8, 12, 0.92);
     }
 }
@@ -39,7 +38,7 @@
 
 body {
     font-family: Georgia, 'Times New Roman', serif;
-    background-color: #1a1820; /*var(--bg-color) */
+    background-color: var(--bg-color); 
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.4s, color 0.4s;
@@ -47,11 +46,8 @@ body {
 
 /* header */
 header {
-    background-color: #1a1820;
+    background-color: var(--header-bg);
     border-bottom: 1px solid var(--border-color);
-    /* position: sticky; */
-    /* top: 0;
-    z-index: 100; */
 }
 
 .header-content {
@@ -78,13 +74,13 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #807288;
+    color: var(--text-color);
     font-size: 0.95rem;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #7e7285;
+    color: var(--accent-color);
 }
 
 /* alert */
@@ -130,22 +126,19 @@ nav a:hover {
     font-size: 0.95rem;
     font-style: italic;
 }
-/* mobile: 1 column */
+/* mobile 1f */
 .gallery-grid {
     display: grid;
-    
     grid-template-columns: 1fr;
     gap: 2.5rem;
 }
-
-/* tablet: 2 columns */
+/* tablet 2f */
 @media (min-width: 768px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
-/* desktop: 3 columns */
+/* desktop 3f */
 @media (min-width: 1024px) {
     .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -154,23 +147,21 @@ nav a:hover {
 
 /* cards */
 .art-card {
-    background-color: #25212d;
-    border: 1px solid #241d2b;
-    /* overflow: hidden; */
-    /* transition: border-color 0.3s; */
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
+    transition: border-color 0.3s, background-color 0.4s;
 }
 
 .art-card:hover {
-    border-color: #5d5061;
+    border-color: var(--muted-text);
 }
 
 .art-card img {
     width: 100%;
     height: 320px;
     object-fit: cover;
-    /* display: block; */
 }
 
 .card-info {
@@ -185,11 +176,12 @@ nav a:hover {
     font-size: 1.1rem;
     font-weight: normal;
     letter-spacing: 0.03em;
+    color: var(--text-color);
 }
 
 .card-info p {
     font-size: 16px;
-    color: #594e5f;
+    color: var(--muted-text);
     font-style: italic;
 }
 
@@ -197,8 +189,8 @@ nav a:hover {
     margin-top: 1.2rem;
     align-self: flex-start;
     background: none;
-    border: #8b83a0;
-    color: #8b83a0;
+    border: none;
+    color: var(--accent-color);
     padding: 0;
     cursor: pointer;
     font-family: inherit;
@@ -209,8 +201,8 @@ nav a:hover {
 }
 
 .view-btn:hover {
-    color: #d6c4e9;
-    border-color: #d6c4e9;
+    color: var(--accent-hover);
+    border-color: var(--accent-hover);
 }
 
 /* form */
@@ -247,7 +239,7 @@ nav a:hover {
 .form-group label {
     font-size: 0.85rem;
     letter-spacing: 0.05em;
-    color: var(--muted-text);
+    color: var(--text-color);
 }
 
 .form-group input,
@@ -268,6 +260,12 @@ nav a:hover {
 .form-group textarea:focus {
     outline: none;
     border-bottom-color: var(--accent-color);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--muted-text); 
+    opacity: 0.8;
 }
 
 .form-group textarea {
@@ -367,6 +365,7 @@ footer {
     font-weight: normal;
     letter-spacing: 0.03em;
     margin-bottom: 0.8rem;
+    color: var(--text-color);
 }
 
 .modal-content p {
